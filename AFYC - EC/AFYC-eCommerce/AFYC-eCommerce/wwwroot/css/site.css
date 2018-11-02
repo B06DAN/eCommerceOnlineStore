@@ -1,0 +1,336 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url("../images/fundal.jpg");
+    background-attachment: fixed;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.navbar-fixed-top {
+    background-color: #323232e6;
+}
+
+.nav-bar-color-buttons {
+    color: #3d9799 !important;
+}
+
+.navbar-nav {
+    font-size: 17px;
+}
+
+.logo-size {
+    width: 142px;
+}
+
+.floating-right {
+    float: right;
+}
+
+.space-nav-bar {
+    margin-left: 228px;
+}
+
+.fas {
+    margin-right: 6px;
+}
+
+.card-img-top {
+    width: 212px;
+    margin-top: 19px;
+    margin-left: 26px;
+}
+
+.btn-primary {
+    background-color: #3d9799;
+    margin-left: 74px;
+    margin-top: 11px;
+    margin-bottom: 19px;
+    border: solid 1px #3d9799;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+    .btn-primary:hover {
+        color: #3d9799;
+        background-color: #fff;
+    }
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    height: 460px;
+    transition: all 0.2s linear;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+    }
+
+.card-text {
+    font-size: 17px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    margin-top: 23px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    height: 100px;
+}
+
+.card-price {
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+}
+
+sup {
+    top: -7.5px;
+    font-size: 15px;
+}
+
+footer {
+    font-family: "Montserrat", sans-serif;
+}
+
+.no-underline {
+    text-decoration: none !important;
+    color: #000;
+}
+
+.tmr {
+    margin-right: 6px;
+}
+
+
+/*SEARCH BAR*/
+/*SEARCH BAR*/
+/*SEARCH BAR*/
+
+.search-btn {
+    color: #ddd;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #48999F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    margin-left: 0px;
+}
+
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn {
+    background: white;
+    color: #EC2426;
+}
+
+/*SEARCH BAR*/
+/*SEARCH BAR*/
+/*SEARCH BAR*/
+
+
+
+
+
+/*input[type=text] {
+    color: #3d9799;
+    background-color: #424343;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #3d9799;
+    border-radius: 4px;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-top: 3px;
+    margin-top: 6px;
+    margin-left: 23px;
+    padding-bottom: 3px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+    input[type=text]:focus {
+        width: 200px;
+    }*/
+
+
+
+
+.search {
+    margin: 7px;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+    .search > div {
+        display: inline-block;
+        position: relative;
+    }
+
+        .search > div:after {
+            content: "";
+            background: #3d9799;
+            width: 3px;
+            height: 10px;
+            position: absolute;
+            top: 19px;
+            right: -1px;
+            transform: rotate(135deg);
+        }
+
+        .search > div > input {
+            color: white;
+            font-size: 16px;
+            background: transparent;
+            width: 25px;
+            height: 25px;
+            padding: 10px;
+            border: solid 3px #3d9799;
+            outline: none;
+            border-radius: 35px;
+            box-shadow: 0 1px #0091c2;
+            transition: width 0.5s;
+        }
+
+            .search > div > input::placeholder {
+                color: #efefef;
+            }
+
+            .search > div > input::-ms-placeholder {
+                color: #efefef;
+            }
+
+            .search > div > input::-ms-input-placeholder {
+                color: #efefef;
+            }
+
+            .search > div > input:focus,
+            .search > div > input:valid {
+                width: 250px;
+            }
+
+
+
+form.example input[type=text] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid grey;
+    float: left;
+    width: 76%;
+    background: #424344;
+    color: #3d9799;
+}
+
+form.example button {
+    float: left;
+    width: 15%;
+    padding: 10px;
+    background: #3d9799;
+    color: white;
+    font-size: 9px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+form.example::after {
+    content: "";
+    display: table;
+}
+
+.image-for-category {
+    max-width: 150px;
+    max-height: 135px;
+    opacity: 1.0;
+    transition: all 0.2s linear;
+    margin-bottom: 20px;
+}
+
+    .image-for-category:hover {
+        max-width: 170px;
+        max-height: 140px;
+        opacity: 0.5;
+    }
+
+.chidden {
+    visibility: hidden;
+}
+
+    .chidden:hover {
+        visibility: visible;
+    }
+
+.image-for-category2 {
+    width: 160px;
+    height: 195px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.categories {
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+#map {
+    height: 100%;
+}
