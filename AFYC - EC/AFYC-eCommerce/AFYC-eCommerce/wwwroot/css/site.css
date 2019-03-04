@@ -1,6 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-image: url("../images/fundal.jpg");
@@ -39,7 +37,7 @@ body {
 }
 
 .navbar-fixed-top {
-    background-color: #323232e6;
+    background-color: #323232;
 }
 
 .nav-bar-color-buttons {
@@ -92,10 +90,16 @@ body {
     border-radius: 15px;
     height: 460px;
     transition: all 0.2s linear;
+    margin-bottom: 25px;
 }
 
     .card:hover {
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+    }
+
+    .card:hover > .btn-primary{
+        color: #3d9799;
+        background-color: #fff;
     }
 
 .card-text {
@@ -177,35 +181,6 @@ footer {
 /*SEARCH BAR*/
 /*SEARCH BAR*/
 /*SEARCH BAR*/
-
-
-
-
-
-/*input[type=text] {
-    color: #3d9799;
-    background-color: #424343;
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #3d9799;
-    border-radius: 4px;
-    font-size: 16px;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding-top: 3px;
-    margin-top: 6px;
-    margin-left: 23px;
-    padding-bottom: 3px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-    input[type=text]:focus {
-        width: 200px;
-    }*/
-
-
-
 
 .search {
     margin: 7px;
@@ -320,6 +295,11 @@ form.example::after {
     height: 195px;
 }
 
+    /*.image-for-category2:hover > p {
+        position: relative;
+        animation: animatetop 0.4s;
+    }*/
+
 .centered {
     text-align: center;
 }
@@ -334,3 +314,34 @@ form.example::after {
 #map {
     height: 100%;
 }
+
+.first-slide{
+    background-image: url("../images/first-slide.jpg");
+    background-attachment: fixed;
+    height:390px;
+}
+
+.image-for-products{
+    width: 30px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/*.dropdown-top {
+    position: relative;
+    animation: animatetop 0.4s;
+}*/
+
+.btn-final {
+    background-color: #3d9799;
+    border: 2px #3d9799;
+}
+
+    .btn-final:hover {
+        background-color: #fff;
+        color: #3d9799;
+        border-radius: 2px solid #3d9799 !important;
+        border-radius:10%;
+    }

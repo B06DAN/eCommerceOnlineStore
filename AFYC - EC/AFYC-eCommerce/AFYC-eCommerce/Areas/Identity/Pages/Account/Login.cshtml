@@ -1,0 +1,92 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/login/vendor/bootstrap/css/bootstrap.min.css">*@
+    <link rel="stylesheet" type="text/css" href="~/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/login/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/login/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/login/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/login/css/register.css">
+</head>
+<body>
+    <br />
+    <br />
+    <div class="container">
+        <div class="background-white">
+            <div class="row">
+                <div class="col-md-4">
+                    <section>
+                        <form method="post">
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Input.Email"></label>
+                                <input asp-for="Input.Email" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Password"></label>
+                                <input asp-for="Input.Password" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label asp-for="Input.RememberMe">
+                                        <input asp-for="Input.RememberMe" />
+                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">Log in</button>
+                            </div>
+                            <div class="form-group">
+                                @*<p>
+                                        <a asp-page="./ForgotPassword">Forgot your password?</a>
+                                    </p>*@
+                                <p>
+                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="col-md-8">
+                    <div class="login100-pic js-tilt image-space" data-tilt>
+                        <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/login/images/img-afyc.jpg" alt="IMG"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/login/vendor/select2/select2.min.js"></script>
+    <script src="~/login/vendor/tilt/tilt.jquery.min.js"></script>
+    <script src="~/login/js/main.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

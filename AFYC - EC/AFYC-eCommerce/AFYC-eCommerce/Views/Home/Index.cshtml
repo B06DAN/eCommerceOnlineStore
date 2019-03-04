@@ -2,8 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!DOCTYPE html>
+
+
+    
+
 <html>
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <body>
+    <div class="container-fluid" style="padding:0 !important;">
+        <div class="first-slide">
+
+        </div>
+    </div>
 
     <br />
     <br />
@@ -11,16 +26,47 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-xs-6 col-sm-3">
+
+            <span id="userName" style="display:none">@UserManager.GetUserName(User)</span>
+
+
+            <div id="productContainer">
+                @foreach (var product in ViewBag.Products)
+                {
+                    <div class="col-md-3 col-xs-6 col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="@product.ProductImage">
+                            <div class="card-body">
+                                <p class="card-text">@product.ProductName</p>
+                                <h5 class="card-price">@product.ProductPrice lei</h5>
+                                <button class="add-cart-button btn btn-warning btn-final" onclick="AddToCart('@product.ProductName', @product.ProductPrice)">Add To Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+            @*<div class="col-md-3 col-xs-6 col-sm-3">
                 <div class="card">
-                    <img class="card-img-top" src="~/images/Produse/Procesoare/1.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="@product.ProductImage" >
                     <div class="card-body">
-                        <p class="card-text">Procesor Intel Kaby Lake, Celeron Dual-Core G3930 2.90GHz box</p>
-                        <h5 class="card-price">147<sup>.99 RON</sup></h5>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>Add to cart</a>
+                        <p class="card-text">@product.ProductName</p>
+                        <h5 class="card-price">@product.ProductPrice</h5>
+                <button class="add-cart-button btn btn-warning" onclick="AddToCart('@product.ProductName', @product.ProductPrice)">Add To Cart</button>
+
+            </div>
+
+                        <a href="#" id="test1" class="btn btn-primary" onclick="AddProduct('@product.ProductName', @product.ProductPrice)"><i class="fas fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
             </div>
+
+
+
+
+
 
             <div class="col-md-3 col-xs-6 col-sm-3">
                 <div class="card">
@@ -52,8 +98,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
 
-    </div>
+        </div>
+                </div>
 </body>
 </html>

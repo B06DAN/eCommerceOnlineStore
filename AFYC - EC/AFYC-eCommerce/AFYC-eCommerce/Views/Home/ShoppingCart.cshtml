@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+<!DOCTYPE html>
+<html>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<body>
+
+    <span id="userName" style="display:none">@UserManager.GetUserName(User)</span>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table style="color:black" class="table">
+                    <thead>
+                        <tr style="color:black">
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cartProducts">
+                        @foreach (var cartProducts in ViewBag.cartProducts)
+                        {
+                            @if (@cartProducts.CartName == @UserManager.GetUserName(User))
+                            {
+                                <tr>
+
+                                    <th>@cartProducts.ProductName</th>
+                                    <th>@cartProducts.Quantity</th>
+                                    <th>@cartProducts.ProductPrice lei</th>
+                                    <th><button class="add-cart-button btn btn-danger" onclick="RemoveFromCart('@cartProducts.ProductName')">X</button></th>
+                                </tr>
+                            }
+                        }
+
+
+                    </tbody>
+
+
+                    <tfoot>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                                <h3 id="totalAmount">
+                                    Total :
+                                    <span>@ViewBag.Total</span>
+                                    lei
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#panel-customer">
+                                    <span class="glyphicon glyphicon-check"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+
+        <div id="panel-customer" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title" id="hdr-form-customer">Checkout</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-group" id="addProductForm">
+                            <label>Email</label>
+                            <input type="text" name="value" placeholder="Enter Email" id="frm-customer-email" class="form-control">
+
+                            <label>First Name</label>
+                            <input type="text" name="text" placeholder="Enter First Name" id="frm-customer-first-name" class="form-control">
+
+                            <label>Last Name</label>
+                            <input type="text" name="text" placeholder="Enter Last Name" id="frm-customer-last-name" class="form-control">
+
+                            <label>City</label>
+                            <input type="text" name="text" placeholder="Enter City" id="frm-customer-city" class="form-control">
+
+                            <label>Address</label>
+                            <input type="text" name="text" placeholder="Enter Address" id="frm-customer-address" class="form-control">
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link pull-left" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="Checkout()" class="btn btn-default btn-success" data-dismiss="modal">CheckOut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

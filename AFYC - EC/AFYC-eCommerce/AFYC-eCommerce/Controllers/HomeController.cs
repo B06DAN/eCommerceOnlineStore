@@ -5,13 +5,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AFYC_eCommerce.Models;
+using AFYC_eCommerce.Data;
+using AFYC.Models;
 
 namespace AFYC_eCommerce.Controllers
 {
     public class HomeController : Controller
     {
+
+        private ApplicationDbContext db;
+        
+
+        public HomeController(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
+
+        public void GetProducts()
+        {
+            var products = db.Product.ToList();
+            ViewBag.Products = products;
+        }
+
+
+
         public IActionResult Index()
         {
+            GetProducts();
             return View();
         }
 
@@ -36,10 +56,40 @@ namespace AFYC_eCommerce.Controllers
             return View();
         }
 
-        public IActionResult Cart()
+        public IActionResult ShoppingCart()
         {
-            ViewData["Message"] = "Your contact page.";
+            GetCartProducts();
+            GetTotal();
             return View();
+        }
+
+        [HttpGet]
+        [ActionName("GetCartProducts")]
+        public void GetCartProducts()
+        {
+            var products = db.CartItem.ToList();
+
+            ViewBag.CartProducts = products;
+        }
+
+
+
+        [HttpGet]
+        [ActionName("GetTotal")]
+        public void GetTotal()
+        {
+            var products = db.CartItem.ToList();
+            float total = 0;
+            var user = HttpContext.User.Identity.Name;
+            foreach (CartItem prods in products)
+            {
+                if (prods.CartName == user)
+                {
+                    total += float.Parse(prods.ProductPrice.ToString());
+                }
+            }
+
+            ViewBag.Total = total;
         }
 
         public IActionResult AdminPanel()
